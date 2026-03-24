@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0f1e" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>PolicyPilot — AI-Powered Government Scheme Navigator</title>
+  <meta name="description"
+    content="Discover, understand, and apply for Indian government welfare schemes using AI — works offline" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    // ── Service Worker: DEV vs PROD ──
+    if ('serviceWorker' in navigator) {
+      const isDev = location.hostname === 'localhost' || location.port === '5173';
+      if (isDev) {
+        // In development: unregister ALL service workers and clear ALL caches
+        // so Vite HMR always delivers fresh JS/CSS bundles.
+        navigator.serviceWorker.getRegistrations().then(regs => {
+          regs.forEach(reg => reg.unregister());
+        });
+        caches.keys().then(keys => {
+          keys.forEach(k => caches.delete(k));
+        });
+        console.log('[Dev] Service Workers unregistered, caches cleared.');
+      } else {
+        // In production: register SW for offline support
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('✅ SW registered:', reg.scope))
+            .catch(err => console.warn('SW registration failed:', err));
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>
