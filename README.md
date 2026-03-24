@@ -2,7 +2,7 @@
 
 PolicyPilot is an AI-powered government scheme discovery and application platform designed to help citizens navigates complex policy frameworks in their native language.
 
-## 🚀 Features
+##  Features
 
 - **🌍 Multilingual UI:** Support for English, Hindi, Gujarati, Marathi, and Bengali.
 - **🎙️ Voice-to-Text Search:** Real-time transcription using **Speechmatics** (aware of selected language).
@@ -10,13 +10,13 @@ PolicyPilot is an AI-powered government scheme discovery and application platfor
 - **📱 Progressive Web App:** Enhanced caching with a focus on offline reliability.
 - **🔄 Local Storage:** Automatic queuing of forms for background sync when internet returns.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** React + Vite + Vanilla CSS
 - **Backend:** Python + FastAPI (handling PDF ingestion and AI analysis)
 - **Voice:** Speechmatics Real-Time WebSocket API
 
-## 🏁 Getting Started
+##  Getting Started
 
 ### 1. Prerequisites
 - Node.js (v18+)
