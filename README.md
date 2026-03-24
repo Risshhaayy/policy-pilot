@@ -42,7 +42,10 @@ python main.py
    npm install
    npm run dev
    # App runs on http://localhost:5173
-   ```
+   ``
+
+
+
 
 ## 📂 Project Structure
 - `/frontend`: React application and translation logic.
